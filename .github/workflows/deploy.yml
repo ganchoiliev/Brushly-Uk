@@ -16,10 +16,12 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
 
-    - name: Install Dependencies
-      run: npm install
+    - name: Clean Install Dependencies
+      run: |
+        rm -rf node_modules package-lock.json
+        npm install
 
     - name: Build Project
       run: npm run build
